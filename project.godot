@@ -250,7 +250,7 @@ multirun/add_custom_args=true
 multirun/first_window_args="listen"
 multirun/other_window_args="join"
 multirun/window_distance=500
-multirun/number_of_windows=2
+multirun/number_of_windows=3
 
 [editor_plugins]
 
