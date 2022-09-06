@@ -5,3 +5,4 @@ func set_name(name: String) -> void:
 
 func enable_ready_btn(value : bool) -> void:
 	$Button.disabled = !value
+	$Button.visible = value

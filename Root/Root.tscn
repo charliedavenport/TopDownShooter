@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Menu/TextEntry.gd" type="Script" id=1]
 [ext_resource path="res://Root/Root.gd" type="Script" id=2]
-[ext_resource path="res://Menu/JoinLobbyList.gd" type="Script" id=3]
+[ext_resource path="res://Menu/JoinLobbyScreen.gd" type="Script" id=3]
 [ext_resource path="res://Menu/LobbyEntry.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menu/PlayerLobbyPanel.tscn" type="PackedScene" id=6]
@@ -33,7 +33,6 @@ margin_bottom = 386.0
 text = "Join"
 
 [node name="HostLobbyEntry" type="Control" parent="Menu"]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -175.0
@@ -61,12 +60,16 @@ margin_top = -20.0
 margin_right = 174.0
 text = "Host"
 
-[node name="Label" type="Label" parent="Menu/HostLobbyEntry"]
+[node name="Panel" type="Panel" parent="Menu/HostLobbyEntry"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -76.0
-margin_right = 76.0
-margin_bottom = 33.0
+margin_left = -71.0
+margin_right = 71.0
+margin_bottom = 30.0
+
+[node name="Label" type="Label" parent="Menu/HostLobbyEntry/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 text = "Enter Lobby Name:"
 align = 1
 valign = 1
@@ -102,31 +105,56 @@ margin_top = -26.0
 margin_right = 176.0
 text = "Enter"
 
-[node name="Label" type="Label" parent="Menu/NameEntry"]
+[node name="Panel" type="Panel" parent="Menu/NameEntry"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -76.0
-margin_right = 76.0
-margin_bottom = 33.0
+margin_left = -58.0
+margin_right = 58.0
+margin_bottom = 30.0
+
+[node name="Label" type="Label" parent="Menu/NameEntry/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 text = "Enter Name:"
 align = 1
 valign = 1
 
-[node name="JoinLobbyList" type="VBoxContainer" parent="Menu"]
+[node name="JoinLobbyScreen" type="Control" parent="Menu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -243.0
-margin_top = -241.0
-margin_right = 243.0
-margin_bottom = 241.0
+margin_left = -331.0
+margin_top = -234.0
+margin_right = 331.0
+margin_bottom = 234.0
 script = ExtResource( 3 )
 
-[node name="LobbyEntry" parent="Menu/JoinLobbyList" instance=ExtResource( 4 )]
+[node name="Panel" type="Panel" parent="Menu/JoinLobbyScreen"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -97.0
+margin_right = 97.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Menu/JoinLobbyScreen/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Lobbies:"
+align = 1
+valign = 1
+
+[node name="JoinLobbyList" type="VBoxContainer" parent="Menu/JoinLobbyScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 70.0
+
+[node name="LobbyEntry" parent="Menu/JoinLobbyScreen/JoinLobbyList" instance=ExtResource( 4 )]
 visible = false
+margin_right = 662.0
 
 [node name="LobbyScreen" type="Control" parent="Menu"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 170.0
@@ -135,9 +163,30 @@ margin_right = -172.0
 margin_bottom = -36.0
 script = ExtResource( 7 )
 
+[node name="Panel" type="Panel" parent="Menu/LobbyScreen"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -133.0
+margin_right = 133.0
+margin_bottom = 48.0
+
+[node name="LobbyNameLabel" type="Label" parent="Menu/LobbyScreen/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -149.0
+margin_top = -24.0
+margin_right = 149.0
+margin_bottom = 24.0
+text = "Lobby Name"
+align = 1
+valign = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/LobbyScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 59.0
 
 [node name="PlayerLobbyPanel" parent="Menu/LobbyScreen/VBoxContainer" instance=ExtResource( 6 )]
 visible = false
